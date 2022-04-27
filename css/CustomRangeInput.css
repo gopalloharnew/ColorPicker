@@ -1,0 +1,51 @@
+.range-input-element {
+  --range-dot-size: 1rem;
+  --range-track-height: 0.25rem;
+  --range-track-width: 100%;
+  --range-wraper-height: calc(var(--range-dot-size) * 1.5);
+  --range-track-bg: hsl(222, 22%, 22%);
+  --range-track-covered-bg: hsl(222, 22%, 78%, 1);
+  --range-dot-bg: hsl(222, 22%, 78%);
+  user-select: none;
+}
+
+.range-wraper,
+.range-wraper > * {
+  display: inline-block;
+}
+
+.range-wraper {
+  width: calc(var(--range-track-width) + var(--range-dot-size));
+  height: var(--range-wraper-height);
+  position: relative;
+  cursor: pointer;
+}
+
+.range-track {
+  width: calc(100% - var(--range-dot-size));
+  height: var(--range-track-height);
+  background: var(--range-track-bg);
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  left: calc(var(--range-dot-size) / 2);
+  pointer-events: none;
+}
+
+.range-width {
+  width: var(--range-track-covered);
+  position: absolute;
+  inset: 0px auto 0px 0px;
+  background-color: var(--range-track-covered-bg);
+}
+
+.range-dot {
+  width: var(--range-dot-size);
+  height: var(--range-dot-size);
+  background-color: var(--range-dot-bg);
+  border-radius: 100%;
+  position: absolute;
+  right: 0%;
+  top: 50%;
+  transform: translate(50%, -50%);
+}

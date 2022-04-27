@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="Dark" data-customized-scrollbar>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Gopal Lohar" />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/utils.css" />
+    <link rel="stylesheet" href="css/colors.css" />
+    <link rel="stylesheet" href="css/CustomRangeInput.css" />
+
+    <script type="module" src="js/script.js"></script>
+
+    <title>Colors</title>
+  </head>
+  <body class="f-col a-center j-center py-16">
+    <div class="main-container w-main">
+      <div class="color-display w-100"></div>
+      <div class="color-output-box f-col">
+        <span class="output-hex w-100 h-3 f-row a-center j-center"
+          >#000000</span
+        >
+        <span class="output-hsl w-100 h-3 f-row a-center j-center"
+          >hsl(360, 100%, 100%)</span
+        >
+        <span class="output-rgb w-100 h-3 f-row a-center j-center"
+          >hsl(255, 255, 255)</span
+        >
+      </div>
+      <div class="color-input-box">
+        <div class="color-input w-100 f-row a-center j-center">
+          <div class="range-input-title">H</div>
+          <div
+            class="range-input-wraper f-row a-center j-center"
+            data-hsl="h"
+            data-rgb="r"
+          ></div>
+        </div>
+        <div class="color-input w-100 f-row a-center j-center">
+          <div class="range-input-title">S</div>
+          <div
+            class="range-input-wraper f-row a-center j-center"
+            data-hsl="s"
+            data-rgb="g"
+          ></div>
+        </div>
+        <div class="color-input w-100 f-row a-center j-center">
+          <div class="range-input-title">L</div>
+          <div
+            class="range-input-wraper f-row a-center j-center"
+            data-hsl="l"
+            data-rgb="b"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
