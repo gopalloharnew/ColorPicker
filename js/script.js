@@ -63,9 +63,32 @@ colorCallback(colorRangeInputS.value, colorRangeInputS.inputElem);
 colorCallback(colorRangeInputL.value, colorRangeInputL.inputElem);
 
 // copy
+const messageWraper = document.querySelector(".message-wraper");
+let messageVisible = false;
+let messageTimeout;
+
+const showMessage = (message) => {
+  messageWraper.innerHTML = message;
+  if (messageVisible) {
+    clearTimeout(messageTimeout);
+    messageTimeout = setTimeout(hideMessage, 2000);
+    return;
+  }
+  messageWraper.classList.add("show-message");
+  messageVisible = true;
+
+  messageTimeout = setTimeout(hideMessage, 2000);
+};
+
+const hideMessage = () => {
+  messageWraper.classList.remove("show-message");
+  messageVisible = false;
+};
+
 const outputBoxes = [outputHex, outputHsl, outputRgb];
 outputBoxes.forEach((outputBox) => {
   outputBox.addEventListener("click", (e) => {
     navigator.clipboard.writeText(outputBox.textContent);
+    showMessage(`Copied ${outputBox.textContent}`);
   });
 });
