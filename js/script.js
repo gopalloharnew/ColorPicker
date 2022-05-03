@@ -53,6 +53,7 @@ let color = {
 function colorCallback(value, element) {
   color[element.dataset.hsl] = value;
   let hslValue = `hsl(${color.h}, ${color.s}%, ${color.l}%)`;
+  localStorage.setItem("colorStoredHSL", JSON.stringify(color));
   colorDisplay.style.backgroundColor = hslValue;
   outputHsl.textContent = hslValue;
   outputHex.textContent = hslToHex(color.h, color.s, color.l);
@@ -92,3 +93,6 @@ outputBoxes.forEach((outputBox) => {
     showMessage(`Copied ${outputBox.textContent}`);
   });
 });
+
+// storage functionality
+let localColor = JSON.parse(localStorage.getItem("colorStoredHSL"));

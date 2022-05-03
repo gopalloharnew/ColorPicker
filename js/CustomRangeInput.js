@@ -18,6 +18,10 @@ export default class CustomRangeInput {
 
   set value(value) {
     this.rangeValue = value;
+    this.rangeWidth.style.setProperty(
+      "--range-track-covered",
+      (value * 100) / (this.max - this.min) + "%"
+    );
   }
 }
 
@@ -46,6 +50,7 @@ function createDivOfClass(className) {
 function eventListenersForInput() {
   this.rangeTrackRect = this.rangeTrack.getBoundingClientRect();
   function rangeAction(e) {
+    e.preventDefault();
     if (e.x < this.rangeTrackRect.x) {
       this.rangeProgress = 0;
       this.value = this.min;
@@ -91,7 +96,7 @@ function eventListenersForInput() {
     this.isMouseDown = false;
   };
 
-  this.rangeWraper.addEventListener("click", rangeClick);
+  // this.rangeWraper.addEventListener("click", rangeClick);
   this.rangeWraper.addEventListener("mousedown", rangeMouseDown);
   document.addEventListener("mousemove", rangeMouseMove);
   document.addEventListener("mouseup", rangeMouseUp);
